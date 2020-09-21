@@ -1,2 +1,3 @@
 #!/bin/bash
-grep -h -o -R "[[:alnum:]._]\+@[[:alnum:].]\+\.[[:alnum:].]\+" /etc/* | awk '{printf "%s, ",$1}' > emails.lst
+email="[[:alnum:]._]\+@[[:alnum:].]\+\.[[:alnum:].]\+"
+grep -h -o -R $email /etc | tr '\n' ',' > emails.lst

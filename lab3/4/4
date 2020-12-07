@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sh 4_1 & pid1=$!
+sh 4_1 & pid2=$!
+sh 4_1 & pid3=$!
+
+renice 10 -p $pid1
+
+at now + 1min <<< "kill ${pid3}"
+at now + 2min <<< "kill ${pid1}; kill ${pid2}"

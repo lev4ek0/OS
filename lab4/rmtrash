@@ -1,0 +1,28 @@
+#!/bin/bash
+
+TRASHDIR=~/.trash
+TRASHLOG=~/.trash.log
+FILE="$PWD/$1"
+
+if [[ $# != 1 ]]; then
+        echo "Invalid arguments."
+        exit 1
+fi
+
+if [[ ! -f $FILE ]]; then
+        echo "Invalid filename."
+        exit 1
+fi
+
+if [[ ! -d $TRASHDIR ]]; then
+        mkdir $TRASHDIR
+        LNAME=0
+        touch $TRASHLOG
+else
+        LNAME=$(ls -1 -r $TRASHDIR | head -1)
+fi
+
+let LNAME++
+ln "$FILE" "$TRASHDIR/$LNAME"
+echo "$FILE $LNAME" >> $TRASHLOG
+rm "$FILE"

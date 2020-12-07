@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./6_ps & pid=$!
+./6_gen $pid

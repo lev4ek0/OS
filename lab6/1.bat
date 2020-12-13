@@ -1,3 +1,4 @@
+cd\
 md LAB6
 cd LAB6
 wmic os get Caption > wmic_os_get_Caption.txt

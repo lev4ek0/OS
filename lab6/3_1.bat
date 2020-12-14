@@ -1,0 +1,1 @@
+sc query type=service | find "ˆ¬ï_á«ã¦¡ë"  > %1
